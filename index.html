@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoalSplit AI — Turn Goals Into Daily Action</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Animated background grid -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <div class="page-wrapper">
+
+    <!-- Header -->
+    <header class="site-header">
+      <div class="logo">
+        <span class="logo-icon">◈</span>
+        <span class="logo-text">GoalSplit <em>AI</em></span>
+      </div>
+      <p class="tagline">Transform your biggest goals into achievable daily steps.</p>
+    </header>
+
+    <!-- Input Card -->
+    <main>
+      <section class="card form-card" id="formSection">
+        <div class="card-label">New Goal Plan</div>
+        <h2 class="card-title">What do you want to achieve?</h2>
+
+        <form id="goalForm" novalidate>
+
+          <!-- Goal Input -->
+          <div class="field-group">
+            <label for="goal">Your Goal</label>
+            <textarea
+              id="goal"
+              name="goal"
+              placeholder="e.g. Learn Python from scratch and build a web app"
+              rows="3"
+              required
+            ></textarea>
+          </div>
+
+          <!-- Deadline + Hours row -->
+          <div class="field-row">
+            <div class="field-group">
+              <label for="days">Deadline (days)</label>
+              <input
+                type="number"
+                id="days"
+                name="days"
+                placeholder="30"
+                min="1"
+                max="365"
+                required
+              />
+            </div>
+            <div class="field-group">
+              <label for="hours">Hours / day</label>
+              <input
+                type="number"
+                id="hours"
+                name="hours"
+                placeholder="2"
+                min="0.5"
+                max="24"
+                step="0.5"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Error message -->
+          <p class="error-msg" id="errorMsg" role="alert" aria-live="polite"></p>
+
+          <!-- Submit -->
+          <button type="submit" class="btn-primary" id="submitBtn">
+            <span class="btn-text">Generate My Plan</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </form>
+      </section>
+
+      <!-- Loading Spinner -->
+      <div class="loading-overlay" id="loadingOverlay" aria-hidden="true">
+        <div class="spinner-wrapper">
+          <div class="spinner"></div>
+          <p class="loading-text">Crafting your personalized plan<span class="dots"></span></p>
+        </div>
+      </div>
+
+      <!-- Results Section -->
+      <section class="results-section" id="resultsSection" aria-live="polite">
+        <div class="results-header" id="resultsHeader"></div>
+        <div class="plan-grid" id="planGrid"></div>
+        <button class="btn-secondary" id="resetBtn">← Plan Another Goal</button>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <p>Powered by OpenAI · Built with Flask</p>
+    </footer>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
