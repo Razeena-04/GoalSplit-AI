@@ -57,7 +57,7 @@ GoalSplit-AI/
 
 ## 🌐 Live Demo
 
-👉 [goal-split-ai.vercel.app](https://goal-split-ai.vercel.app)
+👉 [goal-split-ai.vercel.app](https://goalsplit-ai.vercel.app/)
 
 ---
 
